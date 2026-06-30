@@ -20,7 +20,7 @@
             margin: 0;
         }
         </style>
-         <title>Convenio Resolución Mixta</title>
+          <title>Convenio Resolución Mixta</title>
         <!-- Icono -->
         <link rel="icon" href="./images/favicon1.ico">
     </head>
@@ -30,7 +30,6 @@
         <script src="js/qgis2web_expressions.js"></script>
         <script src="js/leaflet.js"></script>
         <script src="js/L.Control.Layers.Tree.min.js"></script>
-        <script src="js/multi-style-layer.js"></script>
         <script src="js/leaflet.rotatedMarker.js"></script>
         <script src="js/leaflet.pattern.js"></script>
         <script src="js/leaflet-hash.js"></script>
@@ -40,13 +39,13 @@
         <script src="js/labels.js"></script>
         <script src="js/leaflet.photon.js"></script>
         <script src="js/leaflet-measure.js"></script>
-        <script src="data/LimiteGC_1.js"></script>
-        <script src="data/Area2_2.js"></script>
+        <script src="data/Zonificacionbacheomixto_1.js"></script>
+        <script src="data/LimiteGC_2.js"></script>
         <script src="data/Casos_3.js"></script>
         <script>
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:1
-        }).fitBounds([[-32.99069219081135,-68.94079580597881],[-32.86721026075926,-68.71951249670738]]);
+        }).fitBounds([[-32.96209951164689,-68.8977770389401],[-32.90035854662084,-68.78713538430439]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/qgis2web/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -140,7 +139,233 @@
         });
         layer_OpenStreetMap_0;
         map.addLayer(layer_OpenStreetMap_0);
-        function pop_LimiteGC_1(feature, layer) {
+        function pop_Zonificacionbacheomixto_1(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td class="visible-with-data" id="Name" colspan="2"><strong>Name</strong><br />' + (feature.properties['Name'] !== null ? autolinker.link(String(feature.properties['Name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_Zonificacionbacheomixto_1_0(feature) {
+            switch(String(feature.properties['Name'])) {
+                case 'ZONA 1':
+                    return {
+                pane: 'pane_Zonificacionbacheomixto_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.5)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 3.0, 
+                fill: true,
+                fillOpacity: 0.5,
+                fillColor: 'rgba(154,84,234,0.5)',
+                interactive: true,
+            }
+                    break;
+                case 'ZONA 2':
+                    return {
+                pane: 'pane_Zonificacionbacheomixto_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.5)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 3.0, 
+                fill: true,
+                fillOpacity: 0.5,
+                fillColor: 'rgba(223,119,98,0.5)',
+                interactive: true,
+            }
+                    break;
+                case 'ZONA 3':
+                    return {
+                pane: 'pane_Zonificacionbacheomixto_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.5)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 3.0, 
+                fill: true,
+                fillOpacity: 0.5,
+                fillColor: 'rgba(209,169,108,0.5)',
+                interactive: true,
+            }
+                    break;
+                case 'ZONA 4':
+                    return {
+                pane: 'pane_Zonificacionbacheomixto_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.5)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 3.0, 
+                fill: true,
+                fillOpacity: 0.5,
+                fillColor: 'rgba(124,220,111,0.5)',
+                interactive: true,
+            }
+                    break;
+                case 'ZONA 5':
+                    return {
+                pane: 'pane_Zonificacionbacheomixto_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.5)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 3.0, 
+                fill: true,
+                fillOpacity: 0.5,
+                fillColor: 'rgba(226,231,84,0.5)',
+                interactive: true,
+            }
+                    break;
+                case 'ZONA 6':
+                    return {
+                pane: 'pane_Zonificacionbacheomixto_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.5)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 3.0, 
+                fill: true,
+                fillOpacity: 0.5,
+                fillColor: 'rgba(118,239,209,0.5)',
+                interactive: true,
+            }
+                    break;
+                case 'ZONA 7':
+                    return {
+                pane: 'pane_Zonificacionbacheomixto_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.5)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 3.0, 
+                fill: true,
+                fillOpacity: 0.5,
+                fillColor: 'rgba(240,101,136,0.5)',
+                interactive: true,
+            }
+                    break;
+                case 'ZONA 8':
+                    return {
+                pane: 'pane_Zonificacionbacheomixto_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.5)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 3.0, 
+                fill: true,
+                fillOpacity: 0.5,
+                fillColor: 'rgba(200,113,212,0.5)',
+                interactive: true,
+            }
+                    break;
+                case 'ZONA 9':
+                    return {
+                pane: 'pane_Zonificacionbacheomixto_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.5)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 3.0, 
+                fill: true,
+                fillOpacity: 0.5,
+                fillColor: 'rgba(218,54,166,0.5)',
+                interactive: true,
+            }
+                    break;
+                case 'ZONA 10':
+                    return {
+                pane: 'pane_Zonificacionbacheomixto_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.5)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 3.0, 
+                fill: true,
+                fillOpacity: 0.5,
+                fillColor: 'rgba(102,143,210,0.5)',
+                interactive: true,
+            }
+                    break;
+                case 'ZONA 11':
+                    return {
+                pane: 'pane_Zonificacionbacheomixto_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.5)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 3.0, 
+                fill: true,
+                fillOpacity: 0.5,
+                fillColor: 'rgba(100,212,237,0.5)',
+                interactive: true,
+            }
+                    break;
+                case 'ZONA 12':
+                    return {
+                pane: 'pane_Zonificacionbacheomixto_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.5)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 3.0, 
+                fill: true,
+                fillOpacity: 0.5,
+                fillColor: 'rgba(27,235,93,0.5)',
+                interactive: true,
+            }
+                    break;
+                case 'ZONA 13':
+                    return {
+                pane: 'pane_Zonificacionbacheomixto_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.5)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 3.0, 
+                fill: true,
+                fillOpacity: 0.5,
+                fillColor: 'rgba(150,222,63,0.5)',
+                interactive: true,
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_Zonificacionbacheomixto_1');
+        map.getPane('pane_Zonificacionbacheomixto_1').style.zIndex = 401;
+        map.getPane('pane_Zonificacionbacheomixto_1').style['mix-blend-mode'] = 'normal';
+        var layer_Zonificacionbacheomixto_1 = new L.geoJson(json_Zonificacionbacheomixto_1, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Zonificacionbacheomixto_1',
+            layerName: 'layer_Zonificacionbacheomixto_1',
+            pane: 'pane_Zonificacionbacheomixto_1',
+            onEachFeature: pop_Zonificacionbacheomixto_1,
+            style: style_Zonificacionbacheomixto_1_0,
+        });
+        bounds_group.addLayer(layer_Zonificacionbacheomixto_1);
+        map.addLayer(layer_Zonificacionbacheomixto_1);
+        function pop_LimiteGC_2(feature, layer) {
             var popupContent = '<table>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -150,9 +375,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_LimiteGC_1_0() {
+        function style_LimiteGC_2_0() {
             return {
-                pane: 'pane_LimiteGC_1',
+                pane: 'pane_LimiteGC_2',
                 opacity: 1,
                 color: 'rgba(0,0,0,1.0)',
                 dashArray: '',
@@ -163,75 +388,20 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_LimiteGC_1');
-        map.getPane('pane_LimiteGC_1').style.zIndex = 401;
-        map.getPane('pane_LimiteGC_1').style['mix-blend-mode'] = 'normal';
-        var layer_LimiteGC_1 = new L.geoJson(json_LimiteGC_1, {
+        map.createPane('pane_LimiteGC_2');
+        map.getPane('pane_LimiteGC_2').style.zIndex = 402;
+        map.getPane('pane_LimiteGC_2').style['mix-blend-mode'] = 'normal';
+        var layer_LimiteGC_2 = new L.geoJson(json_LimiteGC_2, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_LimiteGC_1',
-            layerName: 'layer_LimiteGC_1',
-            pane: 'pane_LimiteGC_1',
-            onEachFeature: pop_LimiteGC_1,
-            style: style_LimiteGC_1_0,
+            dataVar: 'json_LimiteGC_2',
+            layerName: 'layer_LimiteGC_2',
+            pane: 'pane_LimiteGC_2',
+            onEachFeature: pop_LimiteGC_2,
+            style: style_LimiteGC_2_0,
         });
-        bounds_group.addLayer(layer_LimiteGC_1);
-        map.addLayer(layer_LimiteGC_1);
-        function pop_Area2_2(feature, layer) {
-            var popupContent = '<table>\
-                </table>';
-            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
-			layer.on('popupopen', function(e) {
-				addClassToPopupIfMedia(content, e.popup);
-			});
-			layer.bindPopup(content, { maxHeight: 400 });
-        }
-
-        var pattern_Area2_2_0 = new L.StripePattern({
-            weight: 0.8,
-            spaceWeight: 2.8,
-            color: '#ba6c1d',
-            opacity: 1.0,
-            spaceOpacity: 0,
-            angle: 225
-        });
-        pattern_Area2_2_0.addTo(map);
-        function style_Area2_2_0() {
-            return {
-                pane: 'pane_Area2_2',
-                stroke: false,
-                fillOpacity: 1,
-                fillPattern: pattern_Area2_2_0,
-                interactive: false,
-            }
-        }
-        function style_Area2_2_1() {
-            return {
-                pane: 'pane_Area2_2',
-                opacity: 1,
-                color: 'rgba(186,108,29,1.0)',
-                dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 3.0,
-                fillOpacity: 0,
-                interactive: false,
-            }
-        }
-        map.createPane('pane_Area2_2');
-        map.getPane('pane_Area2_2').style.zIndex = 402;
-        map.getPane('pane_Area2_2').style['mix-blend-mode'] = 'normal';
-        var layer_Area2_2 = new L.geoJson.multiStyle(json_Area2_2, {
-            attribution: '',
-            interactive: false,
-            dataVar: 'json_Area2_2',
-            layerName: 'layer_Area2_2',
-            pane: 'pane_Area2_2',
-            onEachFeature: pop_Area2_2,
-            styles: [style_Area2_2_0,style_Area2_2_1,]
-        });
-        bounds_group.addLayer(layer_Area2_2);
-        map.addLayer(layer_Area2_2);
+        bounds_group.addLayer(layer_LimiteGC_2);
+        map.addLayer(layer_LimiteGC_2);
         function pop_Casos_3(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -289,8 +459,8 @@
         map.addLayer(layer_Casos_3);
         var overlaysTree = [
             {label: '<img src="legend/Casos_3.png" /> Casos', layer: layer_Casos_3},
-            {label: '<img src="legend/Area2_2.png" /> Area 2', layer: layer_Area2_2},
-            {label: '<img src="legend/LimiteGC_1.png" /> Limite GC', layer: layer_LimiteGC_1},
+            {label: '<img src="legend/LimiteGC_2.png" /> Limite GC', layer: layer_LimiteGC_2},
+            {label: 'Zonificacion bacheo mixto<br /><table><tr><td style="text-align: center;"><img src="legend/Zonificacionbacheomixto_1_ZONA10.png" /></td><td>ZONA 1</td></tr><tr><td style="text-align: center;"><img src="legend/Zonificacionbacheomixto_1_ZONA21.png" /></td><td>ZONA 2</td></tr><tr><td style="text-align: center;"><img src="legend/Zonificacionbacheomixto_1_ZONA32.png" /></td><td>ZONA 3</td></tr><tr><td style="text-align: center;"><img src="legend/Zonificacionbacheomixto_1_ZONA43.png" /></td><td>ZONA 4</td></tr><tr><td style="text-align: center;"><img src="legend/Zonificacionbacheomixto_1_ZONA54.png" /></td><td>ZONA 5</td></tr><tr><td style="text-align: center;"><img src="legend/Zonificacionbacheomixto_1_ZONA65.png" /></td><td>ZONA 6</td></tr><tr><td style="text-align: center;"><img src="legend/Zonificacionbacheomixto_1_ZONA76.png" /></td><td>ZONA 7</td></tr><tr><td style="text-align: center;"><img src="legend/Zonificacionbacheomixto_1_ZONA87.png" /></td><td>ZONA 8</td></tr><tr><td style="text-align: center;"><img src="legend/Zonificacionbacheomixto_1_ZONA98.png" /></td><td>ZONA 9</td></tr><tr><td style="text-align: center;"><img src="legend/Zonificacionbacheomixto_1_ZONA109.png" /></td><td>ZONA 10</td></tr><tr><td style="text-align: center;"><img src="legend/Zonificacionbacheomixto_1_ZONA1110.png" /></td><td>ZONA 11</td></tr><tr><td style="text-align: center;"><img src="legend/Zonificacionbacheomixto_1_ZONA1211.png" /></td><td>ZONA 12</td></tr><tr><td style="text-align: center;"><img src="legend/Zonificacionbacheomixto_1_ZONA1312.png" /></td><td>ZONA 13</td></tr></table>', layer: layer_Zonificacionbacheomixto_1},
             {label: "OpenStreetMap", layer: layer_OpenStreetMap_0},]
         var lay = L.control.layers.tree(null, overlaysTree,{
             //namedToggle: true,
