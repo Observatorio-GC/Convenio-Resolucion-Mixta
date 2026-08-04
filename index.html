@@ -46,7 +46,7 @@
         <script>
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:1
-        }).fitBounds([[-32.96073475183468,-68.90201548314569],[-32.89899378680863,-68.79137382850998]]);
+        }).fitBounds([[-32.96092697152657,-68.89943973927477],[-32.89918600650052,-68.78879808463905]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/qgis2web/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -457,28 +457,25 @@
         function pop_CasosBacheo_4(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
-                        <td class="visible-with-data" id="DOMICILIO" colspan="2"><strong>DOMICILIO</strong><br />' + (feature.properties['DOMICILIO'] !== null ? autolinker.link(String(feature.properties['DOMICILIO']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                        <td class="visible-with-data" id="Empresa" colspan="2"><strong>Empresa</strong><br />' + (feature.properties['Empresa'] !== null ? autolinker.link(String(feature.properties['Empresa']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td class="visible-with-data" id="TICKET" colspan="2"><strong>TICKET</strong><br />' + (feature.properties['TICKET'] !== null ? autolinker.link(String(feature.properties['TICKET']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                        <td class="visible-with-data" id="Domicilio" colspan="2"><strong>Domicilio</strong><br />' + (feature.properties['Domicilio'] !== null ? autolinker.link(String(feature.properties['Domicilio']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td class="visible-with-data" id="N° Ticket" colspan="2"><strong>N° Ticket</strong><br />' + (feature.properties['N° Ticket'] !== null ? autolinker.link(String(feature.properties['N° Ticket']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <td class="visible-with-data" id="DESCRIPCIO" colspan="2"><strong>DESCRIPCIO</strong><br />' + (feature.properties['DESCRIPCIO'] !== null ? autolinker.link(String(feature.properties['DESCRIPCIO']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td class="visible-with-data" id="PAVIM" colspan="2"><strong>PAVIM</strong><br />' + (feature.properties['PAVIM'] !== null ? autolinker.link(String(feature.properties['PAVIM']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                        <td class="visible-with-data" id="Fecha Prog" colspan="2"><strong>Fecha Prog</strong><br />' + (feature.properties['Fecha Prog'] !== null ? autolinker.link(String(feature.properties['Fecha Prog']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['SUPERFICIE'] !== null ? autolinker.link(String(feature.properties['SUPERFICIE']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                        <td class="visible-with-data" id="Observacio" colspan="2"><strong>Observacio</strong><br />' + (feature.properties['Observacio'] !== null ? autolinker.link(String(feature.properties['Observacio']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td class="visible-with-data" id="PROGRAMADO" colspan="2"><strong>PROGRAMADO</strong><br />' + (feature.properties['PROGRAMADO'] !== null ? autolinker.link(String(feature.properties['PROGRAMADO']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td class="visible-with-data" id="OBSERVACIO" colspan="2"><strong>OBSERVACIO</strong><br />' + (feature.properties['OBSERVACIO'] !== null ? autolinker.link(String(feature.properties['OBSERVACIO']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td class="visible-with-data" id="ESTADO" colspan="2"><strong>ESTADO</strong><br />' + (feature.properties['ESTADO'] !== null ? autolinker.link(String(feature.properties['ESTADO']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                        <td class="visible-with-data" id="Estado" colspan="2"><strong>Estado</strong><br />' + (feature.properties['Estado'] !== null ? autolinker.link(String(feature.properties['Estado']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -489,7 +486,7 @@
         }
 
         function style_CasosBacheo_4_0(feature) {
-            switch(String(feature.properties['ESTADO'])) {
+            switch(String(feature.properties['Estado'])) {
                 case 'EJECUTADO':
                     return {
                 pane: 'pane_CasosBacheo_4',
@@ -507,6 +504,22 @@
             }
                     break;
                 case 'PROGRAMADO':
+                    return {
+                pane: 'pane_CasosBacheo_4',
+                radius: 6.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(250,209,19,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'NUEVOS':
                     return {
                 pane: 'pane_CasosBacheo_4',
                 radius: 6.0,
@@ -545,7 +558,7 @@
         bounds_group.addLayer(layer_CasosBacheo_4);
         map.addLayer(layer_CasosBacheo_4);
         var overlaysTree = [
-            {label: 'Casos Bacheo<br /><table><tr><td style="text-align: center;"><img src="legend/CasosBacheo_4_EJECUTADO0.png" /></td><td>EJECUTADO</td></tr><tr><td style="text-align: center;"><img src="legend/CasosBacheo_4_PROGRAMADO1.png" /></td><td>PROGRAMADO</td></tr></table>', layer: layer_CasosBacheo_4},
+            {label: 'Casos Bacheo<br /><table><tr><td style="text-align: center;"><img src="legend/CasosBacheo_4_EJECUTADO0.png" /></td><td>EJECUTADO</td></tr><tr><td style="text-align: center;"><img src="legend/CasosBacheo_4_PROGRAMADO1.png" /></td><td>PROGRAMADO</td></tr><tr><td style="text-align: center;"><img src="legend/CasosBacheo_4_NUEVOS2.png" /></td><td>NUEVOS</td></tr></table>', layer: layer_CasosBacheo_4},
             {label: 'Zonificacion bacheo mixto<br /><table><tr><td style="text-align: center;"><img src="legend/Zonificacionbacheomixto_3_ZONA10.png" /></td><td>ZONA 1</td></tr><tr><td style="text-align: center;"><img src="legend/Zonificacionbacheomixto_3_ZONA21.png" /></td><td>ZONA 2</td></tr><tr><td style="text-align: center;"><img src="legend/Zonificacionbacheomixto_3_ZONA32.png" /></td><td>ZONA 3</td></tr><tr><td style="text-align: center;"><img src="legend/Zonificacionbacheomixto_3_ZONA43.png" /></td><td>ZONA 4</td></tr><tr><td style="text-align: center;"><img src="legend/Zonificacionbacheomixto_3_ZONA54.png" /></td><td>ZONA 5</td></tr><tr><td style="text-align: center;"><img src="legend/Zonificacionbacheomixto_3_ZONA65.png" /></td><td>ZONA 6</td></tr><tr><td style="text-align: center;"><img src="legend/Zonificacionbacheomixto_3_ZONA76.png" /></td><td>ZONA 7</td></tr><tr><td style="text-align: center;"><img src="legend/Zonificacionbacheomixto_3_ZONA87.png" /></td><td>ZONA 8</td></tr><tr><td style="text-align: center;"><img src="legend/Zonificacionbacheomixto_3_ZONA98.png" /></td><td>ZONA 9</td></tr><tr><td style="text-align: center;"><img src="legend/Zonificacionbacheomixto_3_ZONA109.png" /></td><td>ZONA 10</td></tr><tr><td style="text-align: center;"><img src="legend/Zonificacionbacheomixto_3_ZONA1110.png" /></td><td>ZONA 11</td></tr><tr><td style="text-align: center;"><img src="legend/Zonificacionbacheomixto_3_ZONA1211.png" /></td><td>ZONA 12</td></tr><tr><td style="text-align: center;"><img src="legend/Zonificacionbacheomixto_3_ZONA1312.png" /></td><td>ZONA 13</td></tr></table>', layer: layer_Zonificacionbacheomixto_3},
             {label: '<img src="legend/reasempresas_2.png" /> Áreas empresas', layer: layer_reasempresas_2},
             {label: '<img src="legend/LimiteGC_1.png" /> Limite GC', layer: layer_LimiteGC_1},
