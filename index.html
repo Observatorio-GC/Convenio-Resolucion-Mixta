@@ -21,8 +21,6 @@
         }
         </style>
         <title>Convenio Resolución Mixta</title>
-        <!-- Icono -->
-        <link rel="icon" href="./images/favicon1.ico">
     </head>
     <body>
         <div id="map">
@@ -46,7 +44,7 @@
         <script>
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:1
-        }).fitBounds([[-32.96092697152657,-68.89943973927477],[-32.89918600650052,-68.78879808463905]]);
+        }).fitBounds([[-32.96146585775498,-68.89989363659701],[-32.89972489272893,-68.78911402478595]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/qgis2web/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -477,6 +475,9 @@
                     <tr>\
                         <td class="visible-with-data" id="Estado" colspan="2"><strong>Estado</strong><br />' + (feature.properties['Estado'] !== null ? autolinker.link(String(feature.properties['Estado']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['field_15'] !== null ? autolinker.link(String(feature.properties['field_15']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
 			layer.on('popupopen', function(e) {
@@ -496,10 +497,10 @@
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 2,
+                weight: 2.0,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(26,210,238,1.0)',
+                fillColor: 'rgba(0,255,28,1.0)',
                 interactive: true,
             }
                     break;
@@ -512,7 +513,7 @@
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 2,
+                weight: 2.0,
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(250,209,19,1.0)',
@@ -528,10 +529,42 @@
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 2,
+                weight: 2.0,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(250,209,19,1.0)',
+                fillColor: 'rgba(10,249,233,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'ANULADO':
+                    return {
+                pane: 'pane_CasosBacheo_4',
+                radius: 6.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(210,210,210,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'REALIZADO':
+                    return {
+                pane: 'pane_CasosBacheo_4',
+                radius: 6.0,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(0,255,28,1.0)',
                 interactive: true,
             }
                     break;
@@ -558,7 +591,7 @@
         bounds_group.addLayer(layer_CasosBacheo_4);
         map.addLayer(layer_CasosBacheo_4);
         var overlaysTree = [
-            {label: 'Casos Bacheo<br /><table><tr><td style="text-align: center;"><img src="legend/CasosBacheo_4_EJECUTADO0.png" /></td><td>EJECUTADO</td></tr><tr><td style="text-align: center;"><img src="legend/CasosBacheo_4_PROGRAMADO1.png" /></td><td>PROGRAMADO</td></tr><tr><td style="text-align: center;"><img src="legend/CasosBacheo_4_NUEVOS2.png" /></td><td>NUEVOS</td></tr></table>', layer: layer_CasosBacheo_4},
+            {label: 'Casos Bacheo<br /><table><tr><td style="text-align: center;"><img src="legend/CasosBacheo_4_EJECUTADO0.png" /></td><td>EJECUTADO</td></tr><tr><td style="text-align: center;"><img src="legend/CasosBacheo_4_PROGRAMADO1.png" /></td><td>PROGRAMADO</td></tr><tr><td style="text-align: center;"><img src="legend/CasosBacheo_4_NUEVOS2.png" /></td><td>NUEVOS</td></tr><tr><td style="text-align: center;"><img src="legend/CasosBacheo_4_ANULADO3.png" /></td><td>ANULADO</td></tr><tr><td style="text-align: center;"><img src="legend/CasosBacheo_4_REALIZADO4.png" /></td><td>REALIZADO</td></tr></table>', layer: layer_CasosBacheo_4},
             {label: 'Zonificacion bacheo mixto<br /><table><tr><td style="text-align: center;"><img src="legend/Zonificacionbacheomixto_3_ZONA10.png" /></td><td>ZONA 1</td></tr><tr><td style="text-align: center;"><img src="legend/Zonificacionbacheomixto_3_ZONA21.png" /></td><td>ZONA 2</td></tr><tr><td style="text-align: center;"><img src="legend/Zonificacionbacheomixto_3_ZONA32.png" /></td><td>ZONA 3</td></tr><tr><td style="text-align: center;"><img src="legend/Zonificacionbacheomixto_3_ZONA43.png" /></td><td>ZONA 4</td></tr><tr><td style="text-align: center;"><img src="legend/Zonificacionbacheomixto_3_ZONA54.png" /></td><td>ZONA 5</td></tr><tr><td style="text-align: center;"><img src="legend/Zonificacionbacheomixto_3_ZONA65.png" /></td><td>ZONA 6</td></tr><tr><td style="text-align: center;"><img src="legend/Zonificacionbacheomixto_3_ZONA76.png" /></td><td>ZONA 7</td></tr><tr><td style="text-align: center;"><img src="legend/Zonificacionbacheomixto_3_ZONA87.png" /></td><td>ZONA 8</td></tr><tr><td style="text-align: center;"><img src="legend/Zonificacionbacheomixto_3_ZONA98.png" /></td><td>ZONA 9</td></tr><tr><td style="text-align: center;"><img src="legend/Zonificacionbacheomixto_3_ZONA109.png" /></td><td>ZONA 10</td></tr><tr><td style="text-align: center;"><img src="legend/Zonificacionbacheomixto_3_ZONA1110.png" /></td><td>ZONA 11</td></tr><tr><td style="text-align: center;"><img src="legend/Zonificacionbacheomixto_3_ZONA1211.png" /></td><td>ZONA 12</td></tr><tr><td style="text-align: center;"><img src="legend/Zonificacionbacheomixto_3_ZONA1312.png" /></td><td>ZONA 13</td></tr></table>', layer: layer_Zonificacionbacheomixto_3},
             {label: '<img src="legend/reasempresas_2.png" /> Áreas empresas', layer: layer_reasempresas_2},
             {label: '<img src="legend/LimiteGC_1.png" /> Limite GC', layer: layer_LimiteGC_1},
