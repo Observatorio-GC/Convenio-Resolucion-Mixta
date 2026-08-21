@@ -54,14 +54,14 @@
         <script src="data/Zona3_13.js"></script>
         <script src="data/Zona2_14.js"></script>
         <script src="data/Zona1_15.js"></script>
-        <script src="data/ANULADO_16.js"></script>
+        <script src="data/RELEVADO_16.js"></script>
         <script src="data/NUEVOS_17.js"></script>
         <script src="data/PROGRAMADO_18.js"></script>
-        <script src="data/EJECUTADO_19.js"></script>
+        <script src="data/REALIZADO_19.js"></script>
         <script>
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:1
-        }).fitBounds([[-32.960033187076526,-68.89720858527524],[-32.89829222205048,-68.78642897346417]]);
+        }).fitBounds([[-32.961418894520996,-68.90417561437107],[-32.89967792949495,-68.79339600256]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/qgis2web/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -789,7 +789,7 @@
         });
         bounds_group.addLayer(layer_Zona1_15);
         map.addLayer(layer_Zona1_15);
-        function pop_ANULADO_16(feature, layer) {
+        function pop_RELEVADO_16(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td class="visible-with-data" id="Empresa" colspan="2"><strong>Empresa</strong><br />' + (feature.properties['Empresa'] !== null ? autolinker.link(String(feature.properties['Empresa']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -820,9 +820,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_ANULADO_16_0() {
+        function style_RELEVADO_16_0() {
             return {
-                pane: 'pane_ANULADO_16',
+                pane: 'pane_RELEVADO_16',
                 radius: 6.000000000000002,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -836,26 +836,26 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_ANULADO_16');
-        map.getPane('pane_ANULADO_16').style.zIndex = 416;
-        map.getPane('pane_ANULADO_16').style['mix-blend-mode'] = 'normal';
-        var layer_ANULADO_16 = new L.geoJson(json_ANULADO_16, {
+        map.createPane('pane_RELEVADO_16');
+        map.getPane('pane_RELEVADO_16').style.zIndex = 416;
+        map.getPane('pane_RELEVADO_16').style['mix-blend-mode'] = 'normal';
+        var layer_RELEVADO_16 = new L.geoJson(json_RELEVADO_16, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_ANULADO_16',
-            layerName: 'layer_ANULADO_16',
-            pane: 'pane_ANULADO_16',
-            onEachFeature: pop_ANULADO_16,
+            dataVar: 'json_RELEVADO_16',
+            layerName: 'layer_RELEVADO_16',
+            pane: 'pane_RELEVADO_16',
+            onEachFeature: pop_RELEVADO_16,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_ANULADO_16_0(feature));
+                return L.circleMarker(latlng, style_RELEVADO_16_0(feature));
             },
         });
-        bounds_group.addLayer(layer_ANULADO_16);
-        map.addLayer(layer_ANULADO_16);
+        bounds_group.addLayer(layer_RELEVADO_16);
+        map.addLayer(layer_RELEVADO_16);
         function pop_NUEVOS_17(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -990,7 +990,7 @@
         });
         bounds_group.addLayer(layer_PROGRAMADO_18);
         map.addLayer(layer_PROGRAMADO_18);
-        function pop_EJECUTADO_19(feature, layer) {
+        function pop_REALIZADO_19(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td class="visible-with-data" id="Empresa" colspan="2"><strong>Empresa</strong><br />' + (feature.properties['Empresa'] !== null ? autolinker.link(String(feature.properties['Empresa']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -1021,9 +1021,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_EJECUTADO_19_0() {
+        function style_REALIZADO_19_0() {
             return {
-                pane: 'pane_EJECUTADO_19',
+                pane: 'pane_REALIZADO_19',
                 radius: 6.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -1037,32 +1037,32 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_EJECUTADO_19');
-        map.getPane('pane_EJECUTADO_19').style.zIndex = 419;
-        map.getPane('pane_EJECUTADO_19').style['mix-blend-mode'] = 'normal';
-        var layer_EJECUTADO_19 = new L.geoJson(json_EJECUTADO_19, {
+        map.createPane('pane_REALIZADO_19');
+        map.getPane('pane_REALIZADO_19').style.zIndex = 419;
+        map.getPane('pane_REALIZADO_19').style['mix-blend-mode'] = 'normal';
+        var layer_REALIZADO_19 = new L.geoJson(json_REALIZADO_19, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_EJECUTADO_19',
-            layerName: 'layer_EJECUTADO_19',
-            pane: 'pane_EJECUTADO_19',
-            onEachFeature: pop_EJECUTADO_19,
+            dataVar: 'json_REALIZADO_19',
+            layerName: 'layer_REALIZADO_19',
+            pane: 'pane_REALIZADO_19',
+            onEachFeature: pop_REALIZADO_19,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_EJECUTADO_19_0(feature));
+                return L.circleMarker(latlng, style_REALIZADO_19_0(feature));
             },
         });
-        bounds_group.addLayer(layer_EJECUTADO_19);
-        map.addLayer(layer_EJECUTADO_19);
+        bounds_group.addLayer(layer_REALIZADO_19);
+        map.addLayer(layer_REALIZADO_19);
         var overlaysTree = [
         {label: '<b>Casos Bacheo</b>',  selectAllCheckbox: true, children: [
-            {label: '<img src="legend/EJECUTADO_19.png" /> EJECUTADO', layer: layer_EJECUTADO_19},
+            {label: '<img src="legend/REALIZADO_19.png" /> REALIZADO', layer: layer_REALIZADO_19},
             {label: '<img src="legend/PROGRAMADO_18.png" /> PROGRAMADO', layer: layer_PROGRAMADO_18},
             {label: '<img src="legend/NUEVOS_17.png" /> NUEVOS', layer: layer_NUEVOS_17},
-            {label: '<img src="legend/ANULADO_16.png" /> ANULADO', layer: layer_ANULADO_16},]},
+            {label: '<img src="legend/RELEVADO_16.png" /> RELEVADO', layer: layer_RELEVADO_16},]},
         {label: '<b>Zonificación Bacheo mixto</b>',  selectAllCheckbox: true, children: [
             {label: '<img src="legend/Zona1_15.png" /> Zona 1', layer: layer_Zona1_15},
             {label: '<img src="legend/Zona2_14.png" /> Zona 2', layer: layer_Zona2_14},
