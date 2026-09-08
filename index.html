@@ -54,14 +54,13 @@
         <script src="data/Zona3_13.js"></script>
         <script src="data/Zona2_14.js"></script>
         <script src="data/Zona1_15.js"></script>
-        <script src="data/RELEVADO_16.js"></script>
-        <script src="data/NUEVOS_17.js"></script>
-        <script src="data/PROGRAMADO_18.js"></script>
-        <script src="data/REALIZADO_19.js"></script>
+        <script src="data/NUEVOS_16.js"></script>
+        <script src="data/PROGRAMADO_17.js"></script>
+        <script src="data/REALIZADO_18.js"></script>
         <script>
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:1
-        }).fitBounds([[-32.961418894520996,-68.90417561437107],[-32.89967792949495,-68.79339600256]]);
+        }).fitBounds([[-32.95833954464438,-68.89951809768267],[-32.896598579618335,-68.78773769716169]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/qgis2web/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -789,8 +788,11 @@
         });
         bounds_group.addLayer(layer_Zona1_15);
         map.addLayer(layer_Zona1_15);
-        function pop_RELEVADO_16(feature, layer) {
+        function pop_NUEVOS_16(feature, layer) {
             var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['ID'] !== null ? autolinker.link(String(feature.properties['ID']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
                     <tr>\
                         <td class="visible-with-data" id="Empresa" colspan="2"><strong>Empresa</strong><br />' + (feature.properties['Empresa'] !== null ? autolinker.link(String(feature.properties['Empresa']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
@@ -799,12 +801,6 @@
                     </tr>\
                     <tr>\
                         <td class="visible-with-data" id="N° Ticket" colspan="2"><strong>N° Ticket</strong><br />' + (feature.properties['N° Ticket'] !== null ? autolinker.link(String(feature.properties['N° Ticket']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td class="visible-with-data" id="DESCRIPCIO" colspan="2"><strong>DESCRIPCIO</strong><br />' + (feature.properties['DESCRIPCIO'] !== null ? autolinker.link(String(feature.properties['DESCRIPCIO']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td class="visible-with-data" id="Fecha Prog" colspan="2"><strong>Fecha Prog</strong><br />' + (feature.properties['Fecha Prog'] !== null ? autolinker.link(String(feature.properties['Fecha Prog']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <td class="visible-with-data" id="Observacio" colspan="2"><strong>Observacio</strong><br />' + (feature.properties['Observacio'] !== null ? autolinker.link(String(feature.properties['Observacio']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -820,76 +816,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_RELEVADO_16_0() {
+        function style_NUEVOS_16_0() {
             return {
-                pane: 'pane_RELEVADO_16',
-                radius: 6.000000000000002,
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 2.0,
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(210,210,210,1.0)',
-                interactive: true,
-            }
-        }
-        map.createPane('pane_RELEVADO_16');
-        map.getPane('pane_RELEVADO_16').style.zIndex = 416;
-        map.getPane('pane_RELEVADO_16').style['mix-blend-mode'] = 'normal';
-        var layer_RELEVADO_16 = new L.geoJson(json_RELEVADO_16, {
-            attribution: '',
-            interactive: true,
-            dataVar: 'json_RELEVADO_16',
-            layerName: 'layer_RELEVADO_16',
-            pane: 'pane_RELEVADO_16',
-            onEachFeature: pop_RELEVADO_16,
-            pointToLayer: function (feature, latlng) {
-                var context = {
-                    feature: feature,
-                    variables: {}
-                };
-                return L.circleMarker(latlng, style_RELEVADO_16_0(feature));
-            },
-        });
-        bounds_group.addLayer(layer_RELEVADO_16);
-        map.addLayer(layer_RELEVADO_16);
-        function pop_NUEVOS_17(feature, layer) {
-            var popupContent = '<table>\
-                    <tr>\
-                        <td class="visible-with-data" id="Empresa" colspan="2"><strong>Empresa</strong><br />' + (feature.properties['Empresa'] !== null ? autolinker.link(String(feature.properties['Empresa']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td class="visible-with-data" id="Domicilio" colspan="2"><strong>Domicilio</strong><br />' + (feature.properties['Domicilio'] !== null ? autolinker.link(String(feature.properties['Domicilio']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td class="visible-with-data" id="N° Ticket" colspan="2"><strong>N° Ticket</strong><br />' + (feature.properties['N° Ticket'] !== null ? autolinker.link(String(feature.properties['N° Ticket']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td class="visible-with-data" id="DESCRIPCIO" colspan="2"><strong>DESCRIPCIO</strong><br />' + (feature.properties['DESCRIPCIO'] !== null ? autolinker.link(String(feature.properties['DESCRIPCIO']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td class="visible-with-data" id="Fecha Prog" colspan="2"><strong>Fecha Prog</strong><br />' + (feature.properties['Fecha Prog'] !== null ? autolinker.link(String(feature.properties['Fecha Prog']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td class="visible-with-data" id="Observacio" colspan="2"><strong>Observacio</strong><br />' + (feature.properties['Observacio'] !== null ? autolinker.link(String(feature.properties['Observacio']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td class="visible-with-data" id="Estado" colspan="2"><strong>Estado</strong><br />' + (feature.properties['Estado'] !== null ? autolinker.link(String(feature.properties['Estado']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
-            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
-			layer.on('popupopen', function(e) {
-				addClassToPopupIfMedia(content, e.popup);
-			});
-			layer.bindPopup(content, { maxHeight: 400 });
-        }
-
-        function style_NUEVOS_17_0() {
-            return {
-                pane: 'pane_NUEVOS_17',
+                pane: 'pane_NUEVOS_16',
                 radius: 6.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -903,28 +832,31 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_NUEVOS_17');
-        map.getPane('pane_NUEVOS_17').style.zIndex = 417;
-        map.getPane('pane_NUEVOS_17').style['mix-blend-mode'] = 'normal';
-        var layer_NUEVOS_17 = new L.geoJson(json_NUEVOS_17, {
+        map.createPane('pane_NUEVOS_16');
+        map.getPane('pane_NUEVOS_16').style.zIndex = 416;
+        map.getPane('pane_NUEVOS_16').style['mix-blend-mode'] = 'normal';
+        var layer_NUEVOS_16 = new L.geoJson(json_NUEVOS_16, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_NUEVOS_17',
-            layerName: 'layer_NUEVOS_17',
-            pane: 'pane_NUEVOS_17',
-            onEachFeature: pop_NUEVOS_17,
+            dataVar: 'json_NUEVOS_16',
+            layerName: 'layer_NUEVOS_16',
+            pane: 'pane_NUEVOS_16',
+            onEachFeature: pop_NUEVOS_16,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_NUEVOS_17_0(feature));
+                return L.circleMarker(latlng, style_NUEVOS_16_0(feature));
             },
         });
-        bounds_group.addLayer(layer_NUEVOS_17);
-        map.addLayer(layer_NUEVOS_17);
-        function pop_PROGRAMADO_18(feature, layer) {
+        bounds_group.addLayer(layer_NUEVOS_16);
+        map.addLayer(layer_NUEVOS_16);
+        function pop_PROGRAMADO_17(feature, layer) {
             var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['ID'] !== null ? autolinker.link(String(feature.properties['ID']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
                     <tr>\
                         <td class="visible-with-data" id="Empresa" colspan="2"><strong>Empresa</strong><br />' + (feature.properties['Empresa'] !== null ? autolinker.link(String(feature.properties['Empresa']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
@@ -933,12 +865,6 @@
                     </tr>\
                     <tr>\
                         <td class="visible-with-data" id="N° Ticket" colspan="2"><strong>N° Ticket</strong><br />' + (feature.properties['N° Ticket'] !== null ? autolinker.link(String(feature.properties['N° Ticket']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td class="visible-with-data" id="DESCRIPCIO" colspan="2"><strong>DESCRIPCIO</strong><br />' + (feature.properties['DESCRIPCIO'] !== null ? autolinker.link(String(feature.properties['DESCRIPCIO']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td class="visible-with-data" id="Fecha Prog" colspan="2"><strong>Fecha Prog</strong><br />' + (feature.properties['Fecha Prog'] !== null ? autolinker.link(String(feature.properties['Fecha Prog']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <td class="visible-with-data" id="Observacio" colspan="2"><strong>Observacio</strong><br />' + (feature.properties['Observacio'] !== null ? autolinker.link(String(feature.properties['Observacio']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -954,9 +880,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_PROGRAMADO_18_0() {
+        function style_PROGRAMADO_17_0() {
             return {
-                pane: 'pane_PROGRAMADO_18',
+                pane: 'pane_PROGRAMADO_17',
                 radius: 6.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -970,28 +896,31 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_PROGRAMADO_18');
-        map.getPane('pane_PROGRAMADO_18').style.zIndex = 418;
-        map.getPane('pane_PROGRAMADO_18').style['mix-blend-mode'] = 'normal';
-        var layer_PROGRAMADO_18 = new L.geoJson(json_PROGRAMADO_18, {
+        map.createPane('pane_PROGRAMADO_17');
+        map.getPane('pane_PROGRAMADO_17').style.zIndex = 417;
+        map.getPane('pane_PROGRAMADO_17').style['mix-blend-mode'] = 'normal';
+        var layer_PROGRAMADO_17 = new L.geoJson(json_PROGRAMADO_17, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_PROGRAMADO_18',
-            layerName: 'layer_PROGRAMADO_18',
-            pane: 'pane_PROGRAMADO_18',
-            onEachFeature: pop_PROGRAMADO_18,
+            dataVar: 'json_PROGRAMADO_17',
+            layerName: 'layer_PROGRAMADO_17',
+            pane: 'pane_PROGRAMADO_17',
+            onEachFeature: pop_PROGRAMADO_17,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_PROGRAMADO_18_0(feature));
+                return L.circleMarker(latlng, style_PROGRAMADO_17_0(feature));
             },
         });
-        bounds_group.addLayer(layer_PROGRAMADO_18);
-        map.addLayer(layer_PROGRAMADO_18);
-        function pop_REALIZADO_19(feature, layer) {
+        bounds_group.addLayer(layer_PROGRAMADO_17);
+        map.addLayer(layer_PROGRAMADO_17);
+        function pop_REALIZADO_18(feature, layer) {
             var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['ID'] !== null ? autolinker.link(String(feature.properties['ID']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
                     <tr>\
                         <td class="visible-with-data" id="Empresa" colspan="2"><strong>Empresa</strong><br />' + (feature.properties['Empresa'] !== null ? autolinker.link(String(feature.properties['Empresa']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
@@ -1000,12 +929,6 @@
                     </tr>\
                     <tr>\
                         <td class="visible-with-data" id="N° Ticket" colspan="2"><strong>N° Ticket</strong><br />' + (feature.properties['N° Ticket'] !== null ? autolinker.link(String(feature.properties['N° Ticket']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td class="visible-with-data" id="DESCRIPCIO" colspan="2"><strong>DESCRIPCIO</strong><br />' + (feature.properties['DESCRIPCIO'] !== null ? autolinker.link(String(feature.properties['DESCRIPCIO']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td class="visible-with-data" id="Fecha Prog" colspan="2"><strong>Fecha Prog</strong><br />' + (feature.properties['Fecha Prog'] !== null ? autolinker.link(String(feature.properties['Fecha Prog']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <td class="visible-with-data" id="Observacio" colspan="2"><strong>Observacio</strong><br />' + (feature.properties['Observacio'] !== null ? autolinker.link(String(feature.properties['Observacio']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -1021,9 +944,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_REALIZADO_19_0() {
+        function style_REALIZADO_18_0() {
             return {
-                pane: 'pane_REALIZADO_19',
+                pane: 'pane_REALIZADO_18',
                 radius: 6.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -1037,32 +960,31 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_REALIZADO_19');
-        map.getPane('pane_REALIZADO_19').style.zIndex = 419;
-        map.getPane('pane_REALIZADO_19').style['mix-blend-mode'] = 'normal';
-        var layer_REALIZADO_19 = new L.geoJson(json_REALIZADO_19, {
+        map.createPane('pane_REALIZADO_18');
+        map.getPane('pane_REALIZADO_18').style.zIndex = 418;
+        map.getPane('pane_REALIZADO_18').style['mix-blend-mode'] = 'normal';
+        var layer_REALIZADO_18 = new L.geoJson(json_REALIZADO_18, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_REALIZADO_19',
-            layerName: 'layer_REALIZADO_19',
-            pane: 'pane_REALIZADO_19',
-            onEachFeature: pop_REALIZADO_19,
+            dataVar: 'json_REALIZADO_18',
+            layerName: 'layer_REALIZADO_18',
+            pane: 'pane_REALIZADO_18',
+            onEachFeature: pop_REALIZADO_18,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_REALIZADO_19_0(feature));
+                return L.circleMarker(latlng, style_REALIZADO_18_0(feature));
             },
         });
-        bounds_group.addLayer(layer_REALIZADO_19);
-        map.addLayer(layer_REALIZADO_19);
+        bounds_group.addLayer(layer_REALIZADO_18);
+        map.addLayer(layer_REALIZADO_18);
         var overlaysTree = [
         {label: '<b>Casos Bacheo</b>',  selectAllCheckbox: true, children: [
-            {label: '<img src="legend/REALIZADO_19.png" /> REALIZADO', layer: layer_REALIZADO_19},
-            {label: '<img src="legend/PROGRAMADO_18.png" /> PROGRAMADO', layer: layer_PROGRAMADO_18},
-            {label: '<img src="legend/NUEVOS_17.png" /> NUEVOS', layer: layer_NUEVOS_17},
-            {label: '<img src="legend/RELEVADO_16.png" /> RELEVADO', layer: layer_RELEVADO_16},]},
+            {label: '<img src="legend/REALIZADO_18.png" /> REALIZADO', layer: layer_REALIZADO_18},
+            {label: '<img src="legend/PROGRAMADO_17.png" /> PROGRAMADO', layer: layer_PROGRAMADO_17},
+            {label: '<img src="legend/NUEVOS_16.png" /> NUEVOS', layer: layer_NUEVOS_16},]},
         {label: '<b>Zonificación Bacheo mixto</b>',  selectAllCheckbox: true, children: [
             {label: '<img src="legend/Zona1_15.png" /> Zona 1', layer: layer_Zona1_15},
             {label: '<img src="legend/Zona2_14.png" /> Zona 2', layer: layer_Zona2_14},
